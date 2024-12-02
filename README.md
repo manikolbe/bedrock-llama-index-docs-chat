@@ -2,6 +2,8 @@
 
 This project is a simple **Retrieval-Augmented Generation (RAG)** example that leverages **AWS Bedrock** and **Llama-Index** for document-based question answering. The application indexes any documents provided in the `data` folder and allows users to interact with the indexed content via a chat interface.
 
+![Demo](demo.gif)
+
 ## Features
 
 - **Document Indexing**: Automatically indexes all documents placed in the `data` folder.
