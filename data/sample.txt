@@ -1,0 +1,716 @@
+What is Amazon Bedrock?
+Amazon Bedrock is a fully managed service that makes high-performing foundation models (FMs)
+from leading AI companies and Amazon available for your use through a unified API. You can
+choose from a wide range of foundation models to find the model that is best suited for your use
+case. Amazon Bedrock also offers a broad set of capabilities to build generative AI applications with
+security, privacy, and responsible AI. Using Amazon Bedrock, you can easily experiment with and
+evaluate top foundation models for your use cases, privately customize them with your data using
+techniques such as fine-tuning and Retrieval Augmented Generation (RAG), and build agents that
+execute tasks using your enterprise systems and data sources.
+With Amazon Bedrock's serverless experience, you can get started quickly, privately customize
+foundation models with your own data, and easily and securely integrate and deploy them into
+your applications using AWS tools without having to manage any infrastructure.
+Topics
+• What can I do with Amazon Bedrock?
+• How do I get started with Amazon Bedrock?
+• Amazon Bedrock pricing
+• Key terminology
+What can I do with Amazon Bedrock?
+You can use Amazon Bedrock to do the following:
+• Experiment with prompts and configurations – Submit prompts and generate responses with
+model inference by sending prompts using different configurations and foundation models to
+generate responses. You can use the API or the text, image, and chat playgrounds in the console
+to experiment in a graphical interface. When you're ready, set up your application to make
+requests to the InvokeModel APIs.
+• Augment response generation with information from your data sources – Create knowledge
+bases by uploading data sources to be queried in order to augment a foundation model's
+generation of responses.
+What can I do with Amazon Bedrock? 1
+Amazon Bedrock User Guide
+• Create applications that reason through how to help a customer – Build agents that use
+foundation models, make API calls, and (optionally) query knowledge bases in order to reason
+through and carry out tasks for your customers.
+• Adapt models to specific tasks and domains with training data – Customize an Amazon
+Bedrock foundation model by providing training data for fine-tuning or continued-pretraining in
+order to adjust a model's parameters and improve its performance on specific tasks or in certain
+domains.
+• Improve your FM-based application's efficiency and output – Purchase Provisioned Throughput
+for a foundation model in order to run inference on models more efficiently and at discounted
+rates.
+• Determine the best model for your use case – Evaluate outputs of different models with built-in
+or custom prompt datasets to determine the model that is best suited for your application.
+• Prevent inappropriate or unwanted content – Use guardrails to implement safeguards for your
+generative AI applications.
+To learn about Regions that support Amazon Bedrock and the foundation models and features
+that Amazon Bedrock supports, see Supported foundation models in Amazon Bedrock and Feature
+support by AWS Region in Amazon Bedrock.
+How do I get started with Amazon Bedrock?
+We recommend that you start with Amazon Bedrock by doing the following:
+1. Familiarize yourself with the terms and concepts that Amazon Bedrock uses.
+2. Understand how AWS charges you for using Amazon Bedrock.
+3. Try the Getting started with Amazon Bedrock tutorials. In the tutorials, you learn how to use
+the playgrounds in Amazon Bedrock console. You also learn and how to use the AWS SDK to call
+Amazon Bedrock API operations.
+4. Read the documentation for the features that you want to include in your application.
+Amazon Bedrock pricing
+When you sign up for AWS, your AWS account is automatically signed up for all services in AWS,
+including Amazon Bedrock. However, you are charged only for the services that you use.
+How do I get started with Amazon Bedrock? 2
+Amazon Bedrock User Guide
+To see your bill, go to the Billing and Cost Management Dashboard in the AWS Billing and Cost
+Management console. To learn more about AWS account billing, see the AWS Billing User Guide. If
+you have questions concerning AWS billing and AWS accounts, contact AWS Support.
+With Amazon Bedrock, you pay to run inference on any of the third-party foundation models.
+Pricing is based on the volume of input tokens and output tokens, and on whether you have
+purchased provisioned throughput for the model. For more information, see the Model providers
+page in the Amazon Bedrock console. For each model, pricing is listed following the model version.
+For more information about purchasing Provisioned Throughput, see Increase model invocation
+capacity with Provisioned Throughput in Amazon Bedrock.
+For more information, see Amazon Bedrock Pricing.
+Key terminology
+This chapter explains terminology that will help you understand what Amazon Bedrock offers
+and how it works. Read through the following list to understand generative AI terminology and
+Amazon Bedrock's fundamental capabilities:
+• Foundation model (FM) – An AI model with a large number of parameters and trained on a
+massive amount of diverse data. A foundation model can generate a variety of responses for a
+wide range of use cases. Foundation models can generate text or image, and can also convert
+input into embeddings. Before you can use an Amazon Bedrock foundation model, you must
+request access. For more information about foundation models, see Supported foundation
+models in Amazon Bedrock.
+• Base model – A foundation model that is packaged by a provider and ready to use. Amazon
+Bedrock offers a variety of industry-leading foundation models from leading providers. For more
+information, see Supported foundation models in Amazon Bedrock.
+• Model inference – The process of a foundation model generating an output (response) from a
+given input (prompt). For more information, see Submit prompts and generate responses with
+model inference.
+• Prompt – An input provided to a model to guide it to generate an appropriate response or
+output for the input. For example, a text prompt can consist of a single line for the model
+to respond to, or it can detail instructions or a task for the model to perform. The prompt
+can contain the context of the task, examples of outputs, or text for a model to use in its
+response. Prompts can be used to carry out tasks such as classification, question answering, code
+generation, creative writing, and more. For more information, see Prompt engineering concepts.
+Key terminology 3
+Amazon Bedrock User Guide
+• Token – A sequence of characters that a model can interpret or predict as a single unit of
+meaning. For example, with text models, a token could correspond not just to a word, but also to
+a part of a word with grammatical meaning (such as "-ed"), a punctuation mark (such as "?"), or a
+common phrase (such as "a lot").
+• Model parameters – Values that define a model and its behavior in interpreting input and
+generating responses. Model parameters are controlled and updated by providers. You can also
+update model parameters to create a new model through the process of model customization.
+• Inference parameters – Values that can be adjusted during model inference to influence a
+response. Inference parameters can affect how varied responses are and can also limit the length
+of a response or the occurrence of specified sequences. For more information and definitions of
+specific inference parameters, see Influence response generation with inference parameters.
+• Playground – A user-friendly graphical interface in the AWS Management Console in which
+you can experiment with running model inference to familiarize yourself with Amazon Bedrock.
+Use the playground to test out the effects of different models, configurations, and inference
+parameters on the responses generated for different prompts that you enter. For more
+information, see Generate responses in the console using playgrounds.
+• Embedding – The process of condensing information by transforming input into a vector
+of numerical values, known as the embeddings, in order to compare the similarity between
+different objects by using a shared numerical representation. For example, sentences can be
+compared to determine the similarity in meaning, images can be compared to determine visual
+similarity, or text and image can be compared to see if they're relevant to each other. You can
+also combine text and image inputs into an averaged embeddings vector if it's relevant to
+your use case. For more information, see Submit prompts and generate responses with model
+inference and Retrieve data and generate AI responses with knowledge bases.
+• Orchestration – The process of coordinating between foundation models and enterprise data
+and applications in order to carry out a task. For more information, see Automate tasks in your
+application using conversational agents.
+• Agent – An application that carry out orchestrations through cyclically interpreting inputs and
+producing outputs by using a foundation model. An agent can be used to carry out customer
+requests. For more information, see Automate tasks in your application using conversational
+agents.
+• Retrieval augmented generation (RAG) – The process of querying and retrieving information
+from a data source in order to augment a generated response to a prompt. For more
+information, see Retrieve data and generate AI responses with knowledge bases.
+Key terminology 4
+Amazon Bedrock User Guide
+• Model customization – The process of using training data to adjust the model parameter values
+in a base model in order to create a custom model. Examples of model customization include
+Fine-tuning, which uses labeled data (inputs and corresponding outputs), and Continued
+Pre-training, which uses unlabeled data (inputs only) to adjust model parameters. For more
+information about model customization techniques available in Amazon Bedrock, see Customize
+your model to improve its performance for your use case.
+• Hyperparameters – Values that can be adjusted for model customization to control the training
+process and, consequently, the output custom model. For more information and definitions of
+specific hyperparameters, see Custom model hyperparameters.
+• Model evaluation – The process of evaluating and comparing model outputs in order to
+determine the model that is best suited for a use case. For more information, see Choose the
+best performing model using Amazon Bedrock evaluations.
+• Provisioned Throughput – A level of throughput that you purchase for a base or custom model
+in order to increase the amount and/or rate of tokens processed during model inference. When
+you purchase Provisioned Throughput for a model, a provisioned model is created that can be
+used to carry out model inference. For more information, see Increase model invocation capacity
+with Provisioned Throughput in Amazon Bedrock.
+Key terminology 5
+Amazon Bedrock User Guide
+Getting started with Amazon Bedrock
+Before you can use Amazon Bedrock, you must carry out the following steps:
+• Sign up for an AWS account (if you don't already have one).
+• Create an AWS Identity and Access Management role with the necessary permissions for Amazon
+Bedrock.
+• Request access to the foundation models (FM) that you want to use.
+If you're new to AWS and need to sign up for an AWS account, expand I'm new to AWS. Otherwise,
+skip that step and instead expand I already have an AWS account.
+I'm new to AWS
+If you do not have an AWS account, complete the following steps to create one.
+To sign up for an AWS account
+1. Open https://portal.aws.amazon.com/billing/signup.
+2. Follow the online instructions.
+Part of the sign-up procedure involves receiving a phone call and entering a verification code
+on the phone keypad.
+When you sign up for an AWS account, an AWS account root user is created. The root user
+has access to all AWS services and resources in the account. As a security best practice, assign
+administrative access to a user, and use only the root user to perform tasks that require root
+user access.
+AWS sends you a confirmation email after the sign-up process isn complete. At any time, you can
+view your current account activity and manage your account by going to https://aws.amazon.com/
+and choosing My Account.
+Secure your AWS account root user
+1. Sign in to the AWS Management Console as the account owner by choosing Root user and
+entering your AWS account email address. On the next page, enter your password.
+I'm new to AWS 6
+Amazon Bedrock User Guide
+For help signing in by using root user, see Signing in as the root user in the AWS Sign-In User
+Guide.
+2. Turn on multi-factor authentication (MFA) for your root user.
+For instructions, see Enable a virtual MFA device for your AWS account root user (console) in
+the IAM User Guide.
+Create a user with administrative access
+1. Enable IAM Identity Center.
+For instructions, see Enabling AWS IAM Identity Center in the AWS IAM Identity Center User
+Guide.
+2. In IAM Identity Center, grant administrative access to a user.
+For a tutorial about using the IAM Identity Center directory as your identity source, see
+Configure user access with the default IAM Identity Center directory in the AWS IAM Identity
+Center User Guide.
+Sign in as the user with administrative access
+• To sign in with your IAM Identity Center user, use the sign-in URL that was sent to your email
+address when you created the IAM Identity Center user.
+For help signing in using an IAM Identity Center user, see Signing in to the AWS access portal in
+the AWS Sign-In User Guide.
+To learn more about IAM, see Identity and access management for Amazon Bedrock and the IAM
+User Guide.
+After you have created an administrative user, proceed to I already have an AWS account to set up
+permissions for Amazon Bedrock.
+I already have an AWS account
+Use IAM to create a role for with the necessary permissions to use Amazon Bedrock. You can then
+add users to this role to grant the permissions.
+I already have an AWS account 7
+Amazon Bedrock User Guide
+To create an Amazon Bedrock role
+1. Create a role with a name of your choice by following the steps at Creating a role to delegate
+permissions to an IAM user in the IAM User Guide. When you reach the step to attach a policy
+to the role, attach the AmazonBedrockFullAccess AWS managed policy.
+2. Create a new policy to allow your role to manage access to Amazon Bedrock models. From the
+following list, select the link that corresponds to your method of choice and follow the steps.
+Use the following JSON object as the policy.
+• Creating IAM policies (console)
+• Creating IAM policies (AWS CLI)
+• Creating IAM policies (AWS API)
+{
+"Version": "2012-10-17",
+"Statement": [
+{
+"Sid": "MarketplaceBedrock",
+"Effect": "Allow",
+"Action": [
+"aws-marketplace:ViewSubscriptions",
+"aws-marketplace:Unsubscribe",
+"aws-marketplace:Subscribe"
+],
+"Resource": "*"
+}
+]
+}
+3. Attach the policy that you created in the last step to your Amazon Bedrock role by following
+the steps at Adding and removing IAM identity permissions.
+To add users to the Amazon Bedrock role
+1. For users to access an IAM role, you must add them to the role. You can add both users in your
+account or from other accounts. To grant users permissions to switch to the Amazon Bedrock
+role that you created, follow the steps at Granting a user permissions to switch roles and
+specify the Amazon Bedrock role as the Resource.
+I already have an AWS account 8
+Amazon Bedrock User Guide
+Note
+If you need to create more users in your account so that you can give them access
+to the Amazon Bedrock role, follow the steps in Creating an IAM user in your AWS
+account.
+2. After you've granted a user permissions to use the Amazon Bedrock role, provide the user
+with role name and ID or alias of the account to which the role belongs. Then, guide the user
+through how to switch to the role by following the instructions at Providing information to the
+user.
+Request access to an Amazon Bedrock foundation model
+After setting up your Amazon Bedrock IAM role, you can sign into the Amazon Bedrock console and
+request access to foundation models.
+To request access to an Amazon Bedrock FM
+1. Sign into the AWS Management Console and switch to the Amazon Bedrock role that you set
+up (or that was set up for you) by following the steps under To switch to a role (console) in
+Switching to a role (console).
+2. Open the Amazon Bedrock console at https://console.aws.amazon.com/bedrock/.
+3. For the purposes of this tutorial, you should be in the US East (N. Virginia) (us-east-1) Region.
+To change regions, choose the Region name at the top right of the console, next to your IAM
+role. Then select US East (N. Virginia) (us-east-1).
+4. Select Model access at the bottom of the left navigation pane.
+5. On the Model access page, you can review the End User License Agreement (EULA) for models
+in the EULA column in the Base models table.
+6. Choose Modify model access.
+7. Do one of the following:
+• To request access to all models, choose Enable all models. On the page you're taken to,
+the checkboxes next to all the models will be filled.
+• To request access to specific models, choose Enable specific models. On the page you're
+taken to, you have the following options:
+Request access to an Amazon Bedrock foundation model 9
+Amazon Bedrock User Guide
+• To request access to all models by a provider, select the checkbox next to the provider
+name.
+• To request access to one model, select the checkbox next to the model name.
+8. For the purposes of the following tutorials, you should minimally request access to the
+Amazon Titan Text G1 - Express and Amazon Titan Image Generator G1 V1 models. Then
+choose Next.
+9. Review the models that you're requesting access to and the Terms. When you're ready, choose
+Submit to request access.
+10. Access may take several minutes to complete. When access is granted to a model, the Access
+status for that model willbecome Access granted.
+(Optional tutorials) Explore Amazon Bedrock features through
+the console or API
+After requesting access to the foundation models that you want to use, you'll be ready to explore
+the different capabilities offered by Amazon Bedrock.
+If you want to familiarize yourself more with Amazon Bedrock first, you can continue to the
+following pages:
+• To learn how to run basic prompts and generate model responses using the Playgrounds in the
+Amazon Bedrock console, continue to Getting started in the Amazon Bedrock console.
+• To learn how to set up access to Amazon Bedrock operations through the Amazon Bedrock API
+and test out some API calls, continue to Getting started with the AWS API.
+• To learn about the software development kits (SDKs) supported by Amazon Bedrock, continue to
+Using Amazon Bedrock with an AWS SDK.
+Getting started in the Amazon Bedrock console
+This section describes how to use the playgrounds in the AWS console to submit a text prompt to a
+Amazon Bedrock foundation model (FM) and generate a text or image response. Before you run the
+following examples, you should check that you have fulfilled the following prerequisites:
+Prerequisites
+(Optional tutorials) Explore Amazon Bedrock features through the console or API 10
+Amazon Bedrock User Guide
+• You have an AWS account and have permissions to access a role in that account with the
+necessary permissions for Amazon Bedrock. Otherwise, follow the steps at I already have an AWS
+account.
+• You've requested access to the Amazon Titan Text G1 - Express and Amazon Titan Image
+Generator G1 V1 models. Otherwise, follow the steps at Request access to an Amazon Bedrock
+foundation model.
+• You're in the US East (N. Virginia) (us-east-1) Region. To change regions, choose the Region name
+at the top right of the console, next to your IAM role. Then select US East (N. Virginia) (us-east-1).
+Topics
+• Explore the text playground
+• Explore the image playground
+Explore the text playground
+The following example demonstrates how to use the text playground:
+1. Sign in to the AWS Management Console using an IAM role with Amazon Bedrock permissions,
+and open the Amazon Bedrock console at https://console.aws.amazon.com/bedrock/.
+2. From the left navigation pane, choose Text under Playgrounds.
+3. Choose Select model and select a provider and model. For this example, we will select
+Amazon Titan Text G1 - Lite. Then choose Apply
+4. Select a default prompt from below the text panel, or enter a prompt into the text panel, such
+as Describe the purpose of a "hello world" program in one line.
+5. Choose Run to run inference on the model. The generated text appears below your prompt in
+the text panel.
+Explore the image playground
+The following example demonstrates how to use the image playground.
+1. Sign in to the AWS Management Console using an IAM role with Amazon Bedrock permissions,
+and open the Amazon Bedrock console at https://console.aws.amazon.com/bedrock/.
+2. From the left navigation pane, choose Image under Playgrounds.
+Explore the text playground 11
+Amazon Bedrock User Guide
+3. Choose Select model and select a provider and model. For this example, we will select
+Amazon Titan Image Generator G1 V1. Then choose Apply
+4. Select a default prompt from below the text panel, or enter a prompt into the text panel, such
+as Generate an image of happy cats.
+5. In the Configurations pane, change the Number of images to 1.
+6. Choose Run to run inference on the model. The generated image appears above the prompt.
+Getting started with the AWS API
+This section describes how to set up your environment to make Amazon Bedrock requests through
+the AWS API. AWS offers the following tools to streamline your experience:
+• AWS Command Line Interface (AWS CLI)
+• AWS SDKs
+• Amazon SageMaker notebooks
+If you plan to authenticate and access the AWS API directly through your setup, proceed to Get
+credentials to grant programmatic access to a user.
+If you plan to use a SageMaker notebook, skip this section and proceed to Run example Amazon
+Bedrock API requests using an Amazon SageMaker notebook.
+Install the AWS CLI or an AWS SDK
+To install the AWS CLI, follow the steps at Install or update to the latest version of the AWS CLI.
+To install an AWS SDK, select the tab that corresponds to the programming language that you
+want to use at Tools to Build on AWS. AWS software development kits (SDKs) are available
+for many popular programming languages. Each SDK provides an API, code examples, and
+documentation that make it easier for developers to build applications in their preferred language.
+SDKs automatically perform useful tasks for you, such as:
+• Cryptographically sign your service requests
+• Retry requests
+• Handle error responses
+Getting started with the API 12
+Amazon Bedrock User Guide
+Get credentials to grant programmatic access to a user
+Grant programmatic access to the Amazon Bedrock role that you created in I already have an AWS
+account by configuring credentials for authentication.
+Users need programmatic access if they want to interact with AWS outside of the AWS
+Management Console. The way to grant programmatic access depends on the type of user that's
+accessing AWS.
+To grant users programmatic access, choose one of the following options.
+Which user needs
+programmatic access?
+To By
+Workforce identity
+(Users managed in IAM
+Identity Center)
+Use temporary credentials to
+sign programmatic requests
+to the AWS CLI, AWS SDKs, or
+AWS APIs.
+Following the instructions for
+the interface that you want to
+use.
+• For the AWS CLI, see
+Configuring the AWS
+CLI to use AWS IAM
+Identity Center in the AWS
+Command Line Interface
+User Guide.
+• For AWS SDKs, tools, and
+AWS APIs, see IAM Identity
+Center authentication in
+the AWS SDKs and Tools
+Reference Guide.
+IAM Use temporary credentials to
+sign programmatic requests
+to the AWS CLI, AWS SDKs, or
+AWS APIs.
+Following the instructions in
+Using temporary credentia
+ls with AWS resources in the
+IAM User Guide.
+IAM (Not recommended)
+Use long-term credentials to
+sign programmatic requests
+Following the instructions for
+the interface that you want to
+use.
+Get credentials to grant programmatic access to a user 13
+Amazon Bedrock User Guide
+Which user needs
+programmatic access?
+To By
+to the AWS CLI, AWS SDKs, or
+AWS APIs.
+• For the AWS CLI, see
+Authenticating using IAM
+user credentials in the AWS
+Command Line Interface
+User Guide.
+• For AWS SDKs and tools,
+see Authenticate using
+long-term credentials in
+the AWS SDKs and Tools
+Reference Guide.
+• For AWS APIs, see
+Managing access keys for
+IAM users in the IAM User
+Guide.
+Try out some Amazon Bedrock API requests
+Now that you've set up programmatic access for your Amazon Bedrock role, you can proceed to
+test out some basic Amazon Bedrock API operations in your method of choice:
+• Run example Amazon Bedrock API requests with the AWS Command Line Interface
+• Run example Amazon Bedrock API requests through the AWS SDK for Python (Boto3)
+• Run example Amazon Bedrock API requests using an Amazon SageMaker notebook
+After you explore these examples, you should familiarize yourself with the four Amazon Bedrock
+services by reading the main page of the Amazon Bedrock API reference. When you make a request
+to a Amazon Bedrock operation, check that you are using the correct endpoint for the service.
+Try out some Amazon Bedrock API requests 14
+Amazon Bedrock User Guide
+Run example Amazon Bedrock API requests with the AWS Command
+Line Interface
+This section guides you through trying out some common operations in Amazon Bedrock using the
+AWS CLI to test that your permissions and authentication are set up properly. Before you run the
+following examples, you should check that you have fulfilled the following prerequisites:
+Prerequisites
+• You have an AWS account and have permissions to access a role with the necessary permissions
+for Amazon Bedrock. Otherwise, follow the steps at I already have an AWS account.
+• You've requested access to the Amazon Titan Text G1 - Express model. Otherwise, follow the
+steps at Request access to an Amazon Bedrock foundation model.
+• You've received access keys for your IAM user and configured a profile with them. Otherwise,
+follow the steps that are applicable to your use case at Get credentials to grant programmatic
+access to a user.
+Test that your permissions and access keys are set up properly for Amazon Bedrock, using the
+Amazon Bedrock role that you created. These examples assume that you have configured a default
+profile with your access keys. Note the following:
+• Minimally, you must configure a profile containing an AWS access key ID and an AWS secret
+access key.
+• If you're using temporary credentials, you must also include an AWS session token.
+Topics
+• List the foundation models that Amazon Bedrock has to offer
+• Submit a text prompt to a model and generate a text response with InvokeModel
+• Submit a text prompt to a model and generate a text response with Converse
+List the foundation models that Amazon Bedrock has to offer
+The following example runs the ListFoundationModels operation using an Amazon Bedrock
+endpoint. ListFoundationModels lists the foundation models (FMs) that are available in
+Amazon Bedrock in your region. In a terminal, run the following command:
+Run examples with the AWS CLI 15
+Amazon Bedrock User Guide
+aws bedrock list-foundation-models --region us-east-1
+If the command is successful, the response returns a list of foundation models that are available in
+Amazon Bedrock.
+Submit a text prompt to a model and generate a text response with InvokeModel
+The following example runs the InvokeModel operation using an Amazon Bedrock runtime
+endpoint. InvokeModel lets you submit a prompt to generate a model response. In a terminal, run
+the following command:
+aws bedrock-runtime invoke-model \
+--model-id amazon.titan-text-express-v1 \
+--body '{"inputText": "Describe the purpose of a \"hello world\" program in one line.",
+"textGenerationConfig" : {"maxTokenCount": 512, "temperature": 0.5, "topP": 0.9}}' \
+--cli-binary-format raw-in-base64-out \
+invoke-model-output-text.txt
+If the command is successful, the response generated by the model is written to the invokemodel-
+output-text.txt file. The text response is returned in the outputText field, alongside
+accompanying information.
+Submit a text prompt to a model and generate a text response with Converse
+The following example runs the Converse operation using an Amazon Bedrock runtime endpoint.
+Converse lets you submit a prompt to generate a model response. We recommend using
+Converse operation over InvokeModel when supported, because it unifies the inference request
+across Amazon Bedrock models and simplifies the management of multi-turn conversations. In a
+terminal, run the following command:
+aws bedrock-runtime converse \
+--model-id amazon.titan-text-express-v1 \
+--messages '[{"role": "user", "content": [{"text": "Describe the purpose of a \"hello
+world\" program in one line."}]}]' \
+--inference-config '{"maxTokens": 512, "temperature": 0.5, "topP": 0.9}'
+If the command is successful, the response generated by the model is returned in the text field,
+alongside accompanying information.
+Run examples with the AWS CLI 16
+Amazon Bedrock User Guide
+Run example Amazon Bedrock API requests through the AWS SDK for
+Python (Boto3)
+This section guides you through trying out some common operations in Amazon Bedrock with the
+AWS Python to test that your permissions and authentication are set up properly. Before you run
+the following examples, you should check that you have fulfilled the following prerequisites:
+Prerequisites
+• You have an AWS account and have permissions to access a role with the necessary permissions
+for Amazon Bedrock. Otherwise, follow the steps at I already have an AWS account.
+• You've requested access to the Amazon Titan Text G1 - Express model. Otherwise, follow the
+steps at Request access to an Amazon Bedrock foundation model.
+• You've received access keys for your IAM user and configured a profile with them. Otherwise,
+follow the steps that are applicable to your use case at Get credentials to grant programmatic
+access to a user.
+Test that your permissions and access keys are set up properly for Amazon Bedrock, using the
+Amazon Bedrock role that you created. These examples assume that you have configured your
+environment with your access keys. Note the following:
+• Minimally, you must specify your AWS access key ID and an AWS secret access key.
+• If you're using temporary credentials, you must also include an AWS session token.
+If you don't specify your credentials in your environment, you can specify them when creating
+a client for Amazon Bedrock operations. To do so, include the aws_access_key_id,
+aws_secret_access_key, and (if you're using short-term credentials) aws_session_token
+arguments when you create the client.
+Topics
+• List the foundation models that Amazon Bedrock has to offer
+• Submit a text prompt to a model and generate a text response with InvokeModel
+• Submit a text prompt to a model and generate a text response with Converse
+Run examples with the AWS SDK for Python (Boto3) 17
+Amazon Bedrock User Guide
+List the foundation models that Amazon Bedrock has to offer
+The following example runs the ListFoundationModels operation using an Amazon Bedrock client.
+ListFoundationModels lists the foundation models (FMs) that are available in Amazon Bedrock
+in your region. Run the following SDK for Python script to create an Amazon Bedrock client and
+test the ListFoundationModels operation:
+# Use the ListFoundationModels API to show the models that are available in your
+region.
+import boto3
+# Create an &BR; client in the &region-us-east-1; Region.
+bedrock = boto3.client(
+service_name="bedrock"
+)
+bedrock.list_foundation_models()
+If the script is successful, the response returns a list of foundation models that are available in
+Amazon Bedrock.
+Submit a text prompt to a model and generate a text response with InvokeModel
+The following example runs the InvokeModel operation using an Amazon Bedrock client.
+InvokeModel lets you submit a prompt to generate a model response. Run the following SDK for
+Python script to create an Amazon Bedrock runtime client and generate a text response with the
+operation:
+# Use the native inference API to send a text message to Amazon Titan Text G1 -
+Express.
+import boto3
+import json
+from botocore.exceptions import ClientError
+# Create an Amazon Bedrock Runtime client.
+brt = boto3.client("bedrock-runtime")
+# Set the model ID, e.g., Amazon Titan Text G1 - Express.
+model_id = "amazon.titan-text-express-v1"
+Run examples with the AWS SDK for Python (Boto3) 18
+Amazon Bedrock User Guide
+# Define the prompt for the model.
+prompt = "Describe the purpose of a 'hello world' program in one line."
+# Format the request payload using the model's native structure.
+native_request = {
+"inputText": prompt,
+"textGenerationConfig": {
+"maxTokenCount": 512,
+"temperature": 0.5,
+"topP": 0.9
+},
+}
+# Convert the native request to JSON.
+request = json.dumps(native_request)
+try:
+# Invoke the model with the request.
+response = brt.invoke_model(modelId=model_id, body=request)
+except (ClientError, Exception) as e:
+print(f"ERROR: Can't invoke '{model_id}'. Reason: {e}")
+exit(1)
+# Decode the response body.
+model_response = json.loads(response["body"].read())
+# Extract and print the response text.
+response_text = model_response["results"][0]["outputText"]
+print(response_text)
+If the command is successful, the response returns the text generated by the model in response to
+the prompt.
+Submit a text prompt to a model and generate a text response with Converse
+The following example runs the Converse operation using an Amazon Bedrock client. We
+recommend using Converse operation over InvokeModel when supported, because it unifies the
+inference request across Amazon Bedrock models and simplifies the management of multi-turn
+conversations. Run the following SDK for Python script to create an Amazon Bedrock runtime client
+and generate a text response with the Converse operation:
+Run examples with the AWS SDK for Python (Boto3) 19
+Amazon Bedrock User Guide
+# Use the Conversation API to send a text message to Amazon Titan Text G1 - Express.
+import boto3
+from botocore.exceptions import ClientError
+# Create an Amazon Bedrock Runtime client.
+brt = boto3.client("bedrock-runtime")
+# Set the model ID, e.g., Amazon Titan Text G1 - Express.
+model_id = "amazon.titan-text-express-v1"
+# Start a conversation with the user message.
+user_message = "Describe the purpose of a 'hello world' program in one line."
+conversation = [
+{
+"role": "user",
+"content": [{"text": user_message}],
+}
+]
+try:
+# Send the message to the model, using a basic inference configuration.
+response = brt.converse(
+modelId=model_id,
+messages=conversation,
+inferenceConfig={"maxTokens": 512, "temperature": 0.5, "topP": 0.9},
+)
+# Extract and print the response text.
+response_text = response["output"]["message"]["content"][0]["text"]
+print(response_text)
+except (ClientError, Exception) as e:
+print(f"ERROR: Can't invoke '{model_id}'. Reason: {e}")
+exit(1)
+If the command is successful, the response returns the text generated by the model in response to
+the prompt.
+Run examples with the AWS SDK for Python (Boto3) 20
+Amazon Bedrock User Guide
+Run example Amazon Bedrock API requests using an Amazon
+SageMaker notebook
+This section guides you through trying out some common operations in Amazon Bedrock with
+an Amazon SageMaker notebook to test that your Amazon Bedrock role permissions are set up
+properly. Before you run the following examples, you should check that you have fulfilled the
+following prerequisites:
+Prerequisites
+• You have an AWS account and have permissions to access a role with the necessary permissions
+for Amazon Bedrock. Otherwise, follow the steps at I already have an AWS account.
+• You've requested access to the Amazon Titan Text G1 - Express model. Otherwise, follow the
+steps at Request access to an Amazon Bedrock foundation model.
+• Carry out the following steps to set up IAM permissions for SageMaker and create a notebook:
+1. Modify the trust policy of the Amazon Bedrock role that you set up in I already have an AWS
+account through the console, CLI, or API. Attach the following trust policy to the role to
+allow both the Amazon Bedrock and SageMaker services to assume the Amazon Bedrock
+role:
+{
+"Version": "2012-10-17",
+"Statement": [
+{
+"Sid": "BedrockTrust",
+"Effect": "Allow",
+"Principal": {
+"Service": "bedrock.amazonaws.com"
+},
+"Action": "sts:AssumeRole"
+},
+{
+"Sid": "SagemakerTrust",
+"Effect": "Allow",
+"Principal": {
+"Service": "sagemaker.amazonaws.com"
+},
+"Action": "sts:AssumeRole"
+}
+Run examples with a SageMaker notebook 21
+Amazon Bedrock User Guide
+]
+}
+2. Sign into the Amazon Bedrock role whose trust policy you just modified.
+3. Follow the steps at Create an Amazon SageMaker Notebook Instance for the tutorial and
+specify the ARN of the Amazon Bedrock role that you created to create an SageMaker
+notebook instance.
+4. When the Status of the notebook instance is InService, choose the instance and then choose
+Open JupyterLab.
+After you open up your SageMaker notebook, you can try out the following examples:
+Topics
+• List the foundation models that Amazon Bedrock has to offer
+• Submit a text prompt to a model and generate a response
+List the foundation models that Amazon Bedrock has to offer
+The following example runs the ListFoundationModels operation using an Amazon Bedrock client.
+ListFoundationModels lists the foundation models (FMs) that are available in Amazon Bedrock
+in your region. Run the following SDK for Python script to create an Amazon Bedrock client and
+test the ListFoundationModels operation:
+# Use the ListFoundationModels API to show the models that are available in your
+region.
+import boto3
+# Create an &BR; client in the &region-us-east-1; Region.
+bedrock = boto3.client(
+service_name="bedrock"
+)
+bedrock.list_foundation_models()
+If the script is successful, the response returns a list of foundation models that are available in
+Amazon Bedrock.
+Run examples with a SageMaker notebook 22
+Amazon Bedrock User Guide
+Submit a text prompt to a model and generate a response
+The following example runs the Converse operation using an Amazon Bedrock client. Converse
+lets you submit a prompt to generate a model response. Run the following SDK for Python script to
+create an Amazon Bedrock runtime client and test the Converse operation:
+# Use the Conversation API to send a text message to Amazon Titan Text G1 - Express.
+import boto3
+from botocore.exceptions import ClientError
+# Create an Amazon Bedrock Runtime client.
+brt = boto3.client("bedrock-runtime")
+# Set the model ID, e.g., Amazon Titan Text G1 - Express.
+model_id = "amazon.titan-text-express-v1"
+# Start a conversation with the user message.
+user_message = "Describe the purpose of a 'hello world' program in one line."
+conversation = [
+{
+"role": "user",
+"content": [{"text": user_message}],
+}
+]
+try:
+# Send the message to the model, using a basic inference configuration.
+response = brt.converse(
+modelId=model_id,
+messages=conversation,
+inferenceConfig={"maxTokens": 512, "temperature": 0.5, "topP": 0.9},
+)
+# Extract and print the response text.
+response_text = response["output"]["message"]["content"][0]["text"]
+print(response_text)
+except (ClientError, Exception) as e:
+print(f"ERROR: Can't invoke '{model_id}'. Reason: {e}")
+exit(1)
+Run examples with a SageMaker notebook 23
+Amazon Bedrock User Guide
+If the command is successful, the response returns the text generated by the model in response to
+the prompt.

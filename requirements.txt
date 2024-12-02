@@ -1,0 +1,7 @@
+boto3
+streamlit
+llama_index
+chromadb
+llama-index-vector-stores-chroma
+llama-index-embeddings-bedrock
+llama-index-llms-bedrock
